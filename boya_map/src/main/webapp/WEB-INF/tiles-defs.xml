@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "/WEB-INF/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/tiles/list.jsp">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/map/country/list.jsp" />
+		<put-attribute name="baseDeal" value="/WEB-INF/tiles/baseDeal.jsp" />
+	</definition>
+	<definition name="chartLayout" template="/WEB-INF/tiles/chart.jsp">
+
+	</definition>
+
+	<definition name="map_country_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/map/country/list.jsp" />
+	</definition>
+
+	<definition name="map_region_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/map/region/list.jsp" />
+	</definition>
+
+	<definition name="map_station_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/map/station/list.jsp" />
+	</definition>
+	<!-- 职业信息 -->
+	<definition name="map_career_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/map/career/list.jsp" />
+	</definition>
+
+	<!-- 设备型号 -->
+	<definition name="device_model_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/model/list.jsp" />
+	</definition>
+	<!-- 设备预警值 -->
+	<definition name="device_alert_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/alert/list.jsp" />
+	</definition>
+	<!-- 内容管理 -->
+	<definition name="device_content_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/content/list.jsp" />
+	</definition>
+
+	<!-- 内容磁盘空间 -->
+	<definition name="device_contenthd_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/contenthd/list.jsp" />
+	</definition>
+
+
+	<!-- NAS服务器组AP设置管理 -->
+	<definition name="device_ap_nasgroup_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/ap/nasgroup/list.jsp" />
+	</definition>
+
+	<!-- NAS服务器AP设置管理 -->
+	<definition name="device_ap_nas_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/ap/nas/list.jsp" />
+	</definition>
+
+	<!-- 内容路径管理 -->
+	<definition name="device_contentpath_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/contentpath/list.jsp" />
+	</definition>
+
+	<!-- NAS组运行状况管理 -->
+	<definition name="device_status_nasgroup_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/status/nasgroup/list.jsp" />
+	</definition>
+
+	<!-- NAS运行状况管理 -->
+	<definition name="device_status_nas_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/device/status/nas/list.jsp" />
+	</definition>
+
+	<!-- NAS组软件更新 -->
+	<definition name="software_install_nasgroup_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/software/install/nasgroup/list.jsp" />
+	</definition>
+
+	<!-- NAS软件更新 -->
+	<definition name="software_install_nas_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/software/install/nas/list.jsp" />
+	</definition>
+
+	<!-- 终端用户组 -->
+	<definition name="nas_group_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/group/list.jsp" />
+	</definition>
+
+	<!-- 终端用户 -->
+	<definition name="nas_user_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/user/list.jsp" />
+	</definition>
+
+	<!-- 终端用户账户 -->
+	<definition name="nas_user_account_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/user/account/list.jsp" />
+	</definition>
+
+	<!-- 终端用户黑名单 -->
+	<definition name="nas_blacklist_user_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/station/blacklist/list.jsp" />
+		<put-attribute name="otherDeal"
+			value="/WEB-INF/jsp/management/nas/station/blacklist/otherDeal.jsp" />
+	</definition>
+
+	<!-- NAS用户组 -->
+	<definition name="nas_group_chilli_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/group/chilli/list.jsp" />
+	</definition>
+
+	<!-- NAS用户组 -->
+	<definition name="nas_user_chilli_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/user/chilli/list.jsp" />
+	</definition>
+
+	<!-- NAS服务器组 -->
+	<definition name="nas_unit_group_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/unit/group/list.jsp" />
+	</definition>
+
+	<!-- NAS服务器 -->
+	<definition name="nas_unit_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/nas/unit/list.jsp" />
+		<put-attribute name="otherDeal"
+			value="/WEB-INF/jsp/management/nas/unit/otherDeal.jsp" />
+	</definition>
+
+	<!-- 用户管理 -->
+	<definition name="user_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/user/list.jsp" />
+	</definition>
+
+	<!-- 用户角色管理 -->
+	<definition name="role_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/role/list.jsp" />
+	</definition>
+
+	<!-- 用户角色管理 -->
+	<definition name="sys_resource_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/sys/resource/list.jsp" />
+		<put-attribute name="baseDeal"
+			value="/WEB-INF/jsp/management/sys/resource/baseDeal.jsp" />
+	</definition>
+
+	<!-- 券码批次管理 -->
+	<definition name="pay_code_batch_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/pay/code/batch/list.jsp" />
+		<put-attribute name="otherDeal"
+			value="/WEB-INF/jsp/management/pay/code/batch/otherDeal.jsp" />
+	</definition>
+	<!-- 券码管理 -->
+	<definition name="pay_code_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/pay/code/list.jsp" />
+	</definition>
+
+	<!-- 券码使用情况 -->
+	<definition name="pay_code_useList_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/pay/code/useList.jsp" />
+	</definition>
+
+	<!-- 导航类广告 -->
+	<definition name="advert_nav_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/advert/nav/list.jsp" />
+	</definition>
+
+	<!-- URL类别管理 -->
+	<definition name="url_category_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/url/category/list.jsp" />
+	</definition>
+
+	<!-- URL标签管理 -->
+	<definition name="url_label_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/url/label/list.jsp" />
+	</definition>
+
+	<!-- URL标签管理 -->
+	<definition name="url_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/url/list.jsp" />
+	</definition>
+
+	<!-- URL黑名单 -->
+	<definition name="behavior_url_blacklist_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/behavior/url/blacklist/list.jsp" />
+	</definition>
+
+	<!-- 用户回话列表 -->
+	<definition name="radius_session_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/radius/session/list.jsp" />
+	</definition>
+
+
+	<!-- 用户会话列表 -->
+	<definition name="radius_report_session_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/radius/report/session/list.jsp" />
+	</definition>
+
+	<!-- 用户会话列表 -->
+	<definition name="radius_report_nas_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/radius/report/nas/list.jsp" />
+	</definition>
+
+	<!-- 用户统计 -->
+	<definition name="behavior_record_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/behavior/record/list.jsp" />
+	</definition>
+
+	<!-- 网址统计 -->
+	<definition name="behavior_data_filter_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/behavior/data/filter.jsp" />
+	</definition>
+
+	<!-- 用户浏览统计 -->
+	<definition name="behavior_data_user_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/behavior/data/user.jsp" />
+	</definition>
+
+	<!-- 标签浏览统计 -->
+	<definition name="behavior_data_label_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/behavior/data/label.jsp" />
+	</definition>
+
+	<!-- 网址访问次数排行 -->
+	<definition name="behavior_record_topCount_list" extends="chartLayout">
+		<put-attribute name="chartGrid"
+			value="/WEB-INF/jsp/management/behavior/record/topCount.jsp" />
+	</definition>
+
+	<!-- 网址访问流量排行 -->
+	<definition name="behavior_record_topBytes_list" extends="chartLayout">
+		<put-attribute name="chartGrid"
+			value="/WEB-INF/jsp/management/behavior/record/topBytes.jsp" />
+	</definition>
+
+	<!-- 代理机构管理 -->
+	<definition name="ditui_agency_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/agency/list.jsp" />
+	</definition>
+
+	<!-- 地推人员管理 -->
+	<definition name="ditui_man_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/man/list.jsp" />
+	</definition>
+
+	<!-- 代理机构业绩 -->
+	<definition name="ditui_report_perform_agency_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/report/perform/agency/list.jsp" />
+	</definition>
+
+	<!-- 地推人员业绩 -->
+	<definition name="ditui_report_perform_man_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/report/perform/man/list.jsp" />
+	</definition>
+
+	<!--网页缓存配置 -->
+	<definition name="config_squid_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/config/squid/list.jsp" />
+	</definition>
+
+	<!--网页缓存配置部署 -->
+	<definition name="config_squid_deploy_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/config/squid/deploy/list.jsp" />
+	</definition>
+
+	<!--路线信息 -->
+	<definition name="ditui_schedule_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/schedule/list.jsp" />
+	</definition>
+
+	<!--路线信息 -->
+	<definition name="ditui_schedule_alongInfo_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/schedule/alongInfo.jsp" />
+	</definition>
+
+	<!--线路归属信息 -->
+	<definition name="ditui_belong_list" extends="baseLayout">
+		<put-attribute name="listGrid"
+			value="/WEB-INF/jsp/management/ditui/belong/list.jsp" />
+	</definition>
+
+
+</tiles-definitions>  

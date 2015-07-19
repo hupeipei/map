@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+	default-lazy-init="true">
+
+	<description>Shiro安全配置</description>
+	<aop:config proxy-target-class="true"></aop:config>
+	<!-- Shiro's main business-tier object for web-enabled applications -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+	</bean>
+
+	<!-- 項目自定义的Realm, 所有accountService依赖的dao都需要用depends-on声明 -->
+	<bean id="shiroDbRealm" class="com.boya.hosp.security.realm.ShiroDbRealm">
+	</bean>
+
+	<!-- <bean id="sysResourceService" class="com.boya.hosp.sys.service.SysResourceServiceImpl"> 
+		</bean> -->
+	<!-- Shiro Filter -->
+	<bean id="shiroFilter" class="com.sichen.web.security.shiro.ClientShiroFilterFactoryBean">
+		<property name="filterChainDefinitionBuilder" ref="sysResourceService" />
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/" />
+		<property name="filterChainDefinitions">
+			<value>
+				/favicon.ico = anon
+				/login = authc																						
+				/logout = logout
+				/static/** = anon
+				/assets/** = anon
+				/template/** = anon
+				/api/** = anon
+				/register/** = anon
+				/admin/** = roles[admin]
+				/config/squid/download/** =anon
+				/config/squid/inject/download/**=anon
+				/download=anon
+				/software/file/**=anon
+				/** = user
+			</value>
+		</property>
+	</bean>
+
+	<!-- 用户授权信息Cache, 采用EhCache -->
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:ehcache/ehcache-shiro.xml" />
+	</bean>
+
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- 开启Shiro注解的Spring配置方式的beans。在lifecycleBeanPostProcessor之后运行 -->
+	<!-- <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" 
+		depends-on="lifecycleBeanPostProcessor" /> -->
+	<bean id="authorizingMethodInterceptor"
+		class="org.apache.shiro.spring.security.interceptor.AopAllianceAnnotationsAuthorizingMethodInterceptor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+		<property name="advice" ref="authorizingMethodInterceptor" />
+	</bean>
+
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="exceptionMappings"> <props> <prop key="org.apache.shiro.authz.UnauthorizedException"> 
+		/unauthorized </prop> <prop key="org.apache.shiro.authz.UnauthenticatedException"> 
+		/login </prop> </props> </property> </bean> -->
+</beans>
